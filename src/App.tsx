@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import { makeStyles } from "@material-ui/core";
+import { Header } from "./Header";
+import { ChatList } from "./ChatList";
+import { Message } from "./Message";
+const useStyles = makeStyles((theme) => ({
+    toolbar: theme.mixins.toolbar
+}));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [chats, setChats] = useState([] as Chat[]);
+    const [isList, setIsList] = useState(true);
+    const [messageBlocks, setMessageBlocks] = useState([] as MessageBlock[]);
+    useEffect(() => {
+        chrome.storage.local.get(null, (all) => {
+            setChats(Object.values(all).reverse() as Chat[]);
+        });
+    }, []);
+    const classes = useStyles();
+
+    const handleListItemClick = (datetime: number) => {
+        const key = datetime.toString();
+        chrome.storage.local.get(key, (chat) => {
+            console.log(`chat: ${JSON.stringify(chat)}`);
+            const messageBlocks = (chat[key] as Chat).messageBlocks;
+            console.log(`messageBlocks : ${messageBlocks}`);
+            setMessageBlocks(messageBlocks);
+        });
+        setIsList(false);
+    };
+
+    const handleBack = () => {
+        setMessageBlocks([]);
+        setIsList(true);
+    };
+
+    return (
+        <div>
+            <Header hasBackButton={!isList} handleBack={handleBack} />
+            <div className={classes.toolbar}></div>
+            {isList ? (
+                <ChatList chats={chats} handleClick={handleListItemClick} />
+            ) : (
+                <Message messageBlocks={messageBlocks}></Message>
+            )}
+        </div>
+    );
 }
 
 export default App;

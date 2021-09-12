@@ -2,8 +2,6 @@ export {};
 const MESSAGE_CLASS_NAME = "oIy2qc";
 const PARENT_CLASS_NAME = "GDhqjd";
 
-type MessageBlock = { sender: string; timeStamp: string; messages: string[] };
-type Chat = { time: number; chatId: string; messageBlocks: MessageBlock[] };
 const time = new Date().getTime();
 const chatId =
     window.location.href
