@@ -21,7 +21,7 @@ const ChatItem = (props: ListItemProps) => {
         >
             <ListItemText
                 primary={`${date.getFullYear()}/${toDoubleDigits(
-                    date.getMonth()
+                    date.getMonth() + 1
                 )}/${toDoubleDigits(date.getDate())} ${toDoubleDigits(
                     date.getHours()
                 )}:${toDoubleDigits(date.getMinutes())}`}
