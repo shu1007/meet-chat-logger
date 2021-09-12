@@ -5,7 +5,7 @@ import { toDoubleDigits } from "./util";
 
 type Props = { chats: Chat[]; handleClick: (datetime: number) => void };
 type ListItemProps = {
-    chatId: string;
+    meetId: string;
     datetime: number;
     style: React.CSSProperties;
     handleClick: (datetime: number) => void;
@@ -25,7 +25,7 @@ const ChatItem = (props: ListItemProps) => {
                 )}/${toDoubleDigits(date.getDate())} ${toDoubleDigits(
                     date.getHours()
                 )}:${toDoubleDigits(date.getMinutes())}`}
-                secondary={`Chat Id: ${props.chatId}`}
+                secondary={`MeetId: ${props.meetId}`}
             />
         </ListItem>
     );
@@ -46,7 +46,7 @@ export const ChatList = (props: Props) => {
         const chatItem = props.chats[index];
         return (
             <ChatItem
-                chatId={chatItem.chatId}
+                meetId={chatItem.meetId}
                 datetime={chatItem.time}
                 style={style}
                 handleClick={props.handleClick}

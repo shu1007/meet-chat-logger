@@ -3,7 +3,7 @@ const MESSAGE_CLASS_NAME = "oIy2qc";
 const PARENT_CLASS_NAME = "GDhqjd";
 
 const time = new Date().getTime();
-const chatId =
+const meetId =
     window.location.href
         .split("/")
         .pop()
@@ -14,7 +14,7 @@ const updateStorage = () => {
     let obj: any = {};
     obj[time] = {
         time: time,
-        chatId: chatId,
+        meetId: meetId,
         messageBlocks: messageBlocks
     } as Chat;
     chrome.storage.local.set(obj);
