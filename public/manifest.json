@@ -1,5 +1,5 @@
 {
-    "name": "meet_chat_logger_react",
+    "name": "MeetChatLogger",
     "author": "Shu NARIGASAWA",
     "description": "Save the log of the google meet chat.",
     "version": "0.1.0",
@@ -13,7 +13,7 @@
     ],
     "action": {
         "default_popup": "index.html",
-        "default_title": "popup"
+        "default_title": "MeetChatLogger"
     },
     "permissions": ["storage", "unlimitedStorage"],
     "icons": {
