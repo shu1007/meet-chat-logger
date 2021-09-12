@@ -18,7 +18,6 @@ const updateStorage = () => {
         messageBlocks: messageBlocks
     } as Chat;
     chrome.storage.local.set(obj);
-    console.log("update");
 };
 
 const config = {

@@ -22,9 +22,7 @@ function App() {
     const handleListItemClick = (datetime: number) => {
         const key = datetime.toString();
         chrome.storage.local.get(key, (chat) => {
-            console.log(`chat: ${JSON.stringify(chat)}`);
             const messageBlocks = (chat[key] as Chat).messageBlocks;
-            console.log(`messageBlocks : ${messageBlocks}`);
             setMessageBlocks(messageBlocks);
         });
         setIsList(false);
