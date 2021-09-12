@@ -1,8 +1,6 @@
 import { ListItemText, makeStyles } from "@material-ui/core";
 import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
 import { FixedSizeList, ListChildComponentProps } from "react-window";
-import { useEffect } from "react";
 import { toDoubleDigits } from "./util";
 
 type Props = { chats: Chat[]; handleClick: (datetime: number) => void };
@@ -35,7 +33,9 @@ const ChatItem = (props: ListItemProps) => {
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "100%",
-        maxWidth: 360,
+        maxWidth: 300,
+        height: 400,
+        marginTop: 16,
         backgroundColor: theme.palette.background.paper
     }
 }));

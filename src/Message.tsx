@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: "100%",
         height: 400,
-        maxWidth: 360,
+        maxWidth: 300,
+        overflow: "auto",
         backgroundColor: theme.palette.background.paper
     },
     inline: {
@@ -21,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
 
 const MessageItem = (props: MessageItemProps) => {
     return (
-        <ListItem button>
+        <ListItem>
             <ListItemText
                 primary={
                     <>
-                        {props.messageBlock.sender}
+                        {props.messageBlock.sender + " "}
                         <Typography
                             color="textSecondary"
                             className={props.inlineClassName}
@@ -47,6 +48,7 @@ const MessageItem = (props: MessageItemProps) => {
                                     }}
                                 >
                                     <Typography
+                                        variant="body2"
                                         style={{ wordWrap: "break-word" }}
                                     >
                                         {m}

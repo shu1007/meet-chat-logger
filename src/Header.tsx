@@ -1,6 +1,7 @@
+import { IconButton } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
+import ArrowBack from "@material-ui/icons/ArrowBack";
 
 type Props = {
     hasBackButton: boolean;
@@ -12,12 +13,9 @@ export function Header(props: Props) {
         <AppBar>
             <Toolbar>
                 {props.hasBackButton && (
-                    <Button
-                        variant="contained"
-                        onClick={() => props.handleBack()}
-                    >
-                        back
-                    </Button>
+                    <IconButton edge="start" onClick={() => props.handleBack()}>
+                        <ArrowBack />
+                    </IconButton>
                 )}
             </Toolbar>
         </AppBar>
