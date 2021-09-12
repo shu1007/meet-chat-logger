@@ -17,8 +17,8 @@
     },
     "permissions": ["storage", "unlimitedStorage"],
     "icons": {
-        "16": "logo192.png",
-        "48": "logo192.png",
-        "128": "logo192.png"
+        "16": "192.png",
+        "48": "192.png",
+        "128": "192.png"
     }
 }
