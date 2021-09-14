@@ -3,14 +3,17 @@ const MESSAGE_CLASS_NAME = "oIy2qc";
 const PARENT_CLASS_NAME = "GDhqjd";
 
 const time = new Date().getTime();
-const meetId =
-    window.location.href
-        .split("/")
-        .pop()
-        ?.match(/[^\?]+/)?.[0] ?? "no chat Id";
+let meetId: string;
 const messageBlocks: MessageBlock[] = [];
 
 const updateStorage = () => {
+    if (!meetId) {
+        meetId =
+            window.location.href
+                .split("/")
+                .pop()
+                ?.match(/[^\?]+/)?.[0] ?? "no chat Id";
+    }
     let obj: any = {};
     obj[time] = {
         time: time,
